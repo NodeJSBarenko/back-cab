@@ -1,0 +1,39 @@
+{
+  "name": "back-cab",
+  "version": "1.0.0",
+  "description": "Backend Cab App",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_PATH=./ ./node_modules/mocha/bin/mocha ./tests/unit/**/*",
+    "server": "NODE_PATH=./ node rest/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NodeJSBarenko/back-cab.git"
+  },
+  "keywords": [
+    "cab",
+    "backend",
+    "nodejs",
+    "restify"
+  ],
+  "author": "barenko",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/NodeJSBarenko/back-cab/issues"
+  },
+  "engines": {
+    "node": "4.2.1"
+  },
+  "homepage": "https://github.com/NodeJSBarenko/back-cab#readme",
+  "dependencies": {
+    "assert-plus": "0.2.0",
+    "bunyan": "1.5.1",
+    "config": "1.17.1",
+    "lodash": "3.10.1",
+    "minimist": "1.2.0",
+    "mocha": "2.3.4",
+    "nodemon": "1.8.1",
+    "restify": "4.0.3"
+  }
+}
