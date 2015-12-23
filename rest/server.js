@@ -63,8 +63,11 @@ class BackCabServer {
 		this.server.use((req, res, next) => {
 			if(req.username === this.config.auth.username && req.authorization.basic.password === this.config.auth.password)
 				return next()
-			else
+			else {
+				res.header('WWW-Authenticate','Basic')
+				res.send(401)
 				return next(new restify.NotAuthorizedError('Username or password is wrong'))
+			}
 		})
 	}
 

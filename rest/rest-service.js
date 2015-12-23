@@ -32,7 +32,6 @@ class RestService {
 	errorHandler(action, res, err, json){
 			this.log.error(err, {action: action, data: json, status: err.message})
 			res.send(err)
-			return next()
 	}
 
 }

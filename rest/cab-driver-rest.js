@@ -13,8 +13,9 @@ class CabDriverRest extends RestService {
 	loadDependences(server){
 		// curl -iH "Content-Type: application/json" -X POST -d '{"name":"Pedro","carPlate":"RPC-9999"}' http://admin:admin@[::]:8080/drivers
 		server.post('/drivers', this.restWrapper('create', this.create))
+		// curl -H "Content-Type: application/json" http://admin:admin@[::]:8080/drivers
+		server.get('/drivers', this.restWrapper('get', this.list))
 		// curl -H "Content-Type: application/json" http://admin:admin@[::]:8080/drivers/RPC-9999
-		// curl -H "Content-Type: application/json" http://admin:admin@[::]:8080/drivers/
 		server.get('/drivers/:carPlate', this.restWrapper('get', this.get))
 
 		// curl -iH "Content-Type: application/json" -X POST -d {"latitude":-23.60810717,"longitude":-46.67500346,"driverId":5997,"driverAvailable":true}' http://admin:admin@[::]:8080/drivers/8475/status
@@ -53,17 +54,16 @@ class CabDriverRest extends RestService {
 
 	get(params, cb){
 		try{
-			assert.string(params.carPlate, 'params.carPlate')
+			assert.optionalString(params.carPlate, 'params.carPlate')
 		} catch(err){
 			return cb(err)
 		}
 
-		let plate = params.carPlate
-		if(plate){
-			db.get('driver', plate, cb)
-		} else {
-			db.find('driver', null, cb)
-		}
+		db.get('driver', params.carPlate, cb)
+	}
+
+	list(params, cb){
+		db.find('driver', null, cb)		
 	}
 }
 

@@ -13,7 +13,7 @@ class ClusteredServer {
 	constructor(options){
 		options = options || argv
 
-		this.cpus = options.cpus || cpus
+		this.cpus = parseInt(process.env.WEB_CONCURRENCY || options.cpus || cpus)
 		this.timeout = options.timeout || 2000
 		this.timeouts = {}
 	}
