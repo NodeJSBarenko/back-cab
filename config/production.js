@@ -17,7 +17,7 @@ module.exports = {
 	server: {
 		name: 'back-cab',
 		version: '1.0.0',
-		port: process.env.PORT || 8080,
+		port: parseInt(process.env.PORT || 8080),
 		address: null,
 		auth: {
 			username: 'admin',
