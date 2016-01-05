@@ -35,7 +35,7 @@ Para montar o ambiente, siga os passos abaixo:
 - Entre na raiz do diretório do projeto
 - Rode `npm install` e aguarde a instalação de dependências
 - Rode `npm test` para verificar se está tudo em ordem
-- Rode `npm start` para subir o servidor local. Subirá um servidor por core. Para subir apenas uma instância, utilize variável de ambiente: `NODE_ENV=production npm start`
+- Rode `npm start` para subir o servidor local. Subirá um servidor por core. Para subir apenas uma instância, utilize variável de ambiente: `NODE_ENV=development WEB_CONCURRENCY=1 npm start`
 
 
 ### Projeto em execução na nuvem:
