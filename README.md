@@ -39,4 +39,25 @@ Para montar o ambiente, siga os passos abaixo:
 
 
 ### Projeto em execução na nuvem:
+
 [BackCab via Heroku](http://back-cab.herokuapp.com/)
+
+**create**
+
+```curl -iH "Content-Type: application/json" -X POST -d '{"name":"Pedro","carPlate":"RPC9999"}' http://admin:admin@back-cab.herokuapp.com/drivers```
+
+**updateStatus**
+
+```curl -iH "Content-Type: application/json" -X POST -d '{"latitude":-23.60810717,"longitude":-46.67500346,"driverId":5997,"driverAvailable":true}' http://admin:admin@back-cab.herokuapp.com/drivers/8475/status```
+
+**inArea**
+
+```curl -iH "Content-Type: application/json" 'http://admin:admin@back-cab.herokuapp.com/drivers/inArea?sw=-23.612474,-46.702746&ne=-23.589548,-46.673392'```
+
+**getStatus**
+
+```curl -iH "Content-Type: application/json"  http://admin:admin@back-cab.herokuapp.com/drivers/8475/status```
+
+**getStatusByCarPlate**
+
+```curl -iH "Content-Type: application/json"  http://admin:admin@back-cab.herokuapp.com/drivers/carPlate/asd0000/status```
