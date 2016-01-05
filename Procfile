@@ -1,1 +1,1 @@
-web: NODE_PATH=./ node server.js
+web: NODE_PATH=./ node rest/clustered-server.js
