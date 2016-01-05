@@ -5,14 +5,13 @@ module.exports = {
 		name: "[PROD] BackCab",
 		streams: [
 			{
-				level: 'error',
-				stream: 'stderr'
-			},
-			{
 				level: 'info',
 				stream: 'stdout'
 			}
 		]
+	},
+	db:{
+		databaseUrl: process.env.DATABASE_URL
 	},
 	server: {
 		name: 'back-cab',

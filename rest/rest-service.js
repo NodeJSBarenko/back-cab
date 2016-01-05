@@ -18,20 +18,25 @@ class RestService {
 
 	restWrapper(action, actionFunc){
 		return (req, res, next) => {
-			actionFunc.call(this, req.params, (err, value) => {
-				if(err) return this.errorHandler(action, res, err, req.params)
+			try {
+				actionFunc.call(this, req.params, (err, value) => {
+					if(err) return this.errorHandler(action, res, err, req.params)
 
-				this.log.debug({action: action, data: value, status: 'done'})
+					this.log.debug({action: action, data: value, status: 'done'})
 
-				res.send(value || 200)
-				return next()
-			})
+					res.send(value || 200)
+					return next()
+				})
+			} catch(e) {
+				this.errorHandler(action, res, e, req.params)
+			}
 		}
 	}
 
 	errorHandler(action, res, err, json){
 			this.log.error(err, {action: action, data: json, status: err.message})
-			res.send(err)
+			let isAssertionFailure = err.name === 'AssertionError' || err.name === 'FunctionalError'
+			res.send(isAssertionFailure ? 400:500, err)
 	}
 
 }

@@ -33,7 +33,6 @@ class BackCabServer {
 		this.loadDependences()
 		this.listeners()
 
-		//this.server.get('/echo/:name', (rq,rs,nx) => {rs.send(rq.params);nx()})
 		log.debug({status: 'loaded'})
 	}
 

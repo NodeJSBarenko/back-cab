@@ -14,6 +14,9 @@ module.exports = {
 			}
 		]
 	},
+	db: {
+		databaseUrl: 'localhost'
+	},
 	server: {
 		name: 'back-cab',
 		version: '1.0.0',

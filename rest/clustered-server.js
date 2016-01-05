@@ -35,7 +35,7 @@ class ClusteredServer {
 			clearTimeout(this.timeouts[worker.id])
 			log.info({worker: worker.process.id, code: code, signal: signal, status: 'died'})
 
-			cluster.fork()//restarting
+			cluster.fork() //restarting
 		})
 
 		cluster.on('fork', worker => {
