@@ -15,6 +15,7 @@ module.exports = {
 		]
 	},
 	db: {
+		module: 'memory',
 		databaseUrl: 'localhost'
 	},
 	server: {

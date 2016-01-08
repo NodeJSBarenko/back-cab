@@ -4,7 +4,8 @@
   "description": "Backend Cab App",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_PATH=./ ./node_modules/mocha/bin/mocha ./tests/unit/**/*",
+    "integration-test": "NODE_PATH=./ NODE_ENV=test ./node_modules/mocha/bin/mocha ./tests/integration/**/*",
+    "test": "NODE_PATH=./ NODE_ENV=test ./node_modules/mocha/bin/mocha ./tests/unit/**/*",
     "start": "NODE_PATH=./ node rest/clustered-server.js  | ./node_modules/bunyan/bin/bunyan -o short"
   },
   "repository": {
